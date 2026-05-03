@@ -1,0 +1,240 @@
+* {
+  
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    display: block; /* 👈 quita el flex */
+    justify-content: center;
+    align-items: center;
+   
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("img/fondo2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+}
+
+.escena {
+    position: relative;
+    margin-bottom: 40px;
+    margin-left: 275px;   /* 👈 ESTO CENTRA */
+    width: 925px;       /* 👈 mismo ancho que tu teatro */
+
+}
+
+/* CAPA DÍA/NOCHE */
+.capa-dia-noche {
+    position: absolute;
+    transform: translate(+0.5%, +3.5%); /* 👈 centrado perfecto */
+    z-index: 1;
+}
+
+.capa-dia-noche img{
+    width: 805px;
+}
+
+.capa-telon {
+    margin-top: 35px;
+    position: absolute;
+    z-index: 2;
+    width: 835px;
+    height: 555px;      /* área visible del telón */
+    overflow: hidden;   /* clave: oculta lo que sube */
+}
+
+.capa-telon img {
+    width: 850px;
+    transform: translate(2.5%, -1.05%);
+    transition: transform 0.5s ease;
+}
+/* estado cuando se abre */
+.telon-abierto {
+    transform: translateY(-50%); /* 👈 sube completamente */
+}
+.capa-teatro{
+    position: absolute;
+    z-index: 3;  /* 👈 encima de día/noche */
+    
+}
+.capa-teatro img{
+    width: 1025px;
+    transform: translate(-10.5%, -1.45%);
+}
+
+.capa-robot{
+    position: absolute;
+    z-index: 4; 
+    right: 495px;
+    
+}
+
+.capa-robot img{
+    margin-top: 375px;
+    margin-right: 190px;
+}
+
+.capa-telon.paso-1 img {
+    transform: translate(0.5%, -25%);
+}
+
+.capa-telon.paso-2 img {
+    transform: translate(0.5%, -50%);
+}
+
+.capa-telon.paso-3 img {
+    transform: translate(0.5%, -75%);
+}
+
+.capa-telon.paso-4 img {
+    transform: translate(0.5%, -100%);
+}
+
+
+
+
+
+.capa-robot.bloqueado img {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.capa-info{
+    position: absolute;
+    z-index: 5;  /* 👈 encima de día/noche */
+    
+}
+.capa-info img{
+    width: 305px;
+    margin-top: 0px;
+    transform: translate(-105%, 3.75%);
+    margin-top: 195px;
+    animation: flotar-suave 3s ease-in-out infinite;
+}
+
+.capa-viaje{
+    position: absolute;
+    z-index: 5;  /* 👈 encima de día/noche */
+    
+}
+.capa-viaje img{
+    width: 575px;
+    animation: flotar-suave 3s ease-in-out infinite;  
+    transform: translate(90%, -20.75%);
+    margin-top: 5px;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#contador-clicks {
+    position: absolute;
+    z-index: 3;
+    left: -25.5px;     /* mueve horizontal */
+    top: 342.5px;      /* mueve vertical */
+    font-size: 22.5px;
+    font-weight: bold;
+    color: #f8d46a;
+    font-family: Arial, sans-serif;
+    background-color: rgba(24, 27, 36);
+    text-shadow: 2px 2px 4px #000;
+    pointer-events: none;
+    width: 70px;     /* 👈 MÁS ANCHO */
+    height: 27.5px;     /* 👈 MÁS ALTO */
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;   /* 👈 centra horizontal */
+    align-items: center;       /* 👈 centra vertical */
+}
+
+
+.capa-cierre{
+    position: absolute;
+    z-index: 8;  /* 👈 encima de día/noche */
+    
+}
+.capa-cierre img{
+    width: 85px;
+    animation: flotar-suave 3s ease-in-out infinite;  
+    transform: translate(-40%, 3.75%);
+    margin-top: 65px;
+}
+
+.capa-solyluna{
+    position: absolute;
+    z-index: 7;  /* 👈 encima de día/noche */
+    
+}
+.capa-solyluna img{
+    width: 345px;
+    animation: flotar-suave 3s ease-in-out infinite;  
+    transform: translate(72.5%, 15.75%);
+    margin-top: 0px;
+}
+
+.entrando {
+    animation: plastilina 0.8s cubic-bezier(.25, 1.4, .45, 1) forwards;
+}
+
+@keyframes plastilina {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px) scale(0.8) rotate(-5deg);
+        filter: blur(6px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(10px) scale(1.05) rotate(2deg);
+        filter: blur(0);
+    }
+
+    100% {
+        transform: translateY(0) scale(1) rotate(0);
+    }
+}
+#solyluna {
+    cursor: pointer;
+}
+
+.capa-walter{
+    position: absolute;
+    z-index: 1; 
+    right: 185px;
+    
+}
+
+.capa-walter img{
+    margin-top: 385px;
+    margin-right: 190px;
+    width: 270px;
+}
+
+.capa-click{
+    position: absolute;
+    z-index: 3; 
+    right: 735px;
+    
+}
+
+.capa-click img{
+    margin-top: 445px;
+    margin-right: 190px;
+    width: 210px;
+}
